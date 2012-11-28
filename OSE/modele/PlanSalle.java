@@ -1,15 +1,21 @@
 package modele;
 import java.util.ArrayList ;
+import java.util.Iterator;
 
 import controleur.Position;
 
-
+import modele.PlanSalle;
 import vue.Orientation;
+import java.lang.Iterable;
 
-public class PlanSalle {
+public class PlanSalle<Poste> implements Iterable<Poste>{
 	private String nom ;
 	private ArrayList<Poste> lesPostes = new ArrayList<Poste>() ;
 
+	public interface Iterable<Poste> {
+	   Iterator<Poste> iterator();
+	}
+	
 	public PlanSalle(String nom) {
 		super();
 		this.nom = nom;
@@ -80,6 +86,10 @@ public class PlanSalle {
 		return this.lesPostes ;
 	}
 	
+	public Iterator<Poste> iterator(){
+		return lesPostes.iterator();	
+	}
+	
 	private void rechercherPostesVisibles(){
 		for(Poste poste : lesPostes){
 			poste.initialiserPostesVisibles() ;
@@ -96,7 +106,6 @@ public class PlanSalle {
 			}
 		}
 	}
-	
 	//-------------------------------------------------------------------------------------------
 	
 	public class Poste {
@@ -165,4 +174,5 @@ public class PlanSalle {
 		return this.postesVisibles.size() ;
 	}
 	}
+
 }
