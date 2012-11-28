@@ -2,8 +2,7 @@ package controleur;
 
 import java.awt.event.* ;
 
-import modèle.*;
-
+import modele.PlanSalle;
 import vue.*;
 
 public class Controleur implements MouseListener, ActionListener {

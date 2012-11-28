@@ -5,7 +5,8 @@ import java.awt.* ;
 
 import javax.swing.* ;
 
-import modèle.*;
+import modele.PlanSalle;
+
 
 import controleur.*;
 
